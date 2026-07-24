@@ -1,0 +1,488 @@
+/* ==========================================
+   VARIABLES Y PALETA DE COLORES (ROSA PASTEL)
+   ========================================== */
+:root {
+  --pink-bg: #fff0f3;
+  --pink-light: #ffccd5;
+  --pink-medium: #ffb3c1;
+  --pink-accent: #ff758f;
+  --pink-dark: #c9184a;
+  --cream-white: #fffbfa;
+  --text-dark: #4a3e3d;
+  --text-muted: #8a7a78;
+  --whatsapp-green: #25d366;
+  --whatsapp-hover: #1ebe57;
+  
+  --font-title: 'Fredoka', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+}
+
+/* Reset Básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--pink-bg);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ==========================================
+   ELEMENTOS DE FONDO Y ANIMACIONES VIVAS
+   ========================================== */
+.floating-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.strawberry-float {
+  position: absolute;
+  font-size: 2.5rem;
+  opacity: 0.25;
+  filter: blur(1px);
+  animation: float 8s infinite ease-in-out;
+}
+
+.s1 { top: 10%; left: 8%; animation-delay: 0s; }
+.s2 { top: 70%; left: 85%; animation-delay: 2s; }
+.s3 { top: 40%; left: 90%; animation-delay: 4s; }
+.s4 { top: 80%; left: 12%; animation-delay: 1s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-25px) rotate(15deg); }
+}
+
+/* ==========================================
+   HEADER / NAVEGACIÓN
+   ========================================== */
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 8%;
+  background: rgba(255, 240, 243, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  border-bottom: 2px solid var(--pink-light);
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--pink-dark);
+}
+
+.logo span {
+  color: var(--pink-accent);
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-left: 2rem;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav a:hover {
+  color: var(--pink-dark);
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--pink-accent);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 8% 6rem;
+  min-height: 85vh;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content {
+  max-width: 550px;
+}
+
+.badge {
+  background-color: var(--pink-light);
+  color: var(--pink-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.hero-content h1 {
+  font-family: var(--font-title);
+  font-size: 3.5rem;
+  line-height: 1.15;
+  color: var(--text-dark);
+  margin-bottom: 1.2rem;
+}
+
+.highlight {
+  color: var(--pink-dark);
+  background: linear-gradient(120deg, var(--pink-medium) 0%, var(--pink-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Imagen del Hero con efecto Glow */
+.hero-image {
+  position: relative;
+}
+
+.image-wrapper {
+  width: 380px;
+  height: 380px;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  overflow: hidden;
+  border: 6px solid #fff;
+  box-shadow: 0 20px 40px rgba(201, 24, 74, 0.15);
+  animation: morphing 8s ease-in-out infinite, floatImage 4s ease-in-out infinite;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes morphing {
+  0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+  100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+}
+
+@keyframes floatImage {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* ==========================================
+   BOTONES WHATSAPP & ESTILOS
+   ========================================== */
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background-color: var(--whatsapp-green);
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  background-color: var(--whatsapp-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(37, 211, 102, 0.4);
+}
+
+.ws-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Efecto de pulso continuo para botón principal */
+.pulse {
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+  70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* ==========================================
+   SECCIÓN DE MENÚ (TARJETAS3D / IMPACTO)
+   ========================================== */
+.menu-section {
+  padding: 5rem 8%;
+  background-color: var(--cream-white);
+  border-radius: 40px 40px 0 0;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  text-align: center;
+  font-family: var(--font-title);
+  font-size: 2.8rem;
+  color: var(--pink-dark);
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 3.5rem;
+  font-size: 1.1rem;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 25px;
+  overflow: hidden;
+  padding: 1.5rem;
+  border: 2px solid var(--pink-bg);
+  box-shadow: 0 10px 30px rgba(255, 117, 143, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(201, 24, 74, 0.15);
+  border-color: var(--pink-medium);
+}
+
+.card.popular {
+  border: 2px solid var(--pink-accent);
+}
+
+.card-tag {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: var(--pink-light);
+  color: var(--pink-dark);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.card-img {
+  width: 100%;
+  height: 200px;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-img img {
+  transform: scale(1.1);
+}
+
+.card-body h3 {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--pink-dark);
+}
+
+.btn-card {
+  text-decoration: none;
+  background-color: var(--pink-light);
+  color: var(--pink-dark);
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.card:hover .btn-card {
+  background-color: var(--pink-dark);
+  color: #fff;
+}
+
+/* ==========================================
+   SECCIÓN SOBRE NOSOTROS
+   ========================================== */
+.about-section {
+  padding: 5rem 8%;
+  position: relative;
+  z-index: 1;
+}
+
+.about-box {
+  background: linear-gradient(135deg, var(--pink-medium) 0%, var(--pink-light) 100%);
+  padding: 3.5rem 2rem;
+  border-radius: 30px;
+  text-align: center;
+  color: var(--pink-dark);
+}
+
+.about-box h2 {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.feature-item {
+  max-width: 250px;
+}
+
+.feature-item .icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.feature-item h4 {
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-item p {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+}
+
+/* ==========================================
+   FOOTER & BOTÓN FLOTANTE PERMANENTE
+   ========================================== */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--pink-dark);
+  color: var(--pink-light);
+  font-size: 0.9rem;
+}
+
+/* Botón de WhatsApp flotante en la esquina inferior derecha */
+.float-whatsapp {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--whatsapp-green);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+.float-whatsapp svg {
+  width: 35px;
+  height: 35px;
+}
+
+.float-whatsapp:hover {
+  transform: scale(1.15) rotate(10deg);
+  background-color: var(--whatsapp-hover);
+}
+
+/* ==========================================
+   DISEÑO RESPONSIVO (MÓVILES)
+   ========================================== */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 2rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .image-wrapper {
+    width: 280px;
+    height: 280px;
+    margin-top: 2rem;
+  }
+
+  .nav {
+    display: none; /* Oculta la navegación en pantallas muy pequeñas */
+  }
+}
