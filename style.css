@@ -23,7 +23,6 @@ body {
   font-family: var(--font-body);
   color: var(--text-color);
   background: linear-gradient(135deg, #fffafc 0%, #ffeef3 100%);
-  overflow-x: hidden;
   position: relative;
 }
 
@@ -81,10 +80,35 @@ header {
   padding: 20px 8%;
 }
 
-.navbar {
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 24px;
+}
+
+.main-nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  list-style: none;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary);
 }
 
 .logo {
@@ -148,6 +172,8 @@ header {
 
 .hero-content {
   max-width: 550px;
+  min-width: 0;
+  flex: 1 1 0;
 }
 
 .badge {
@@ -222,6 +248,8 @@ header {
 /* Imagen Hero y etiquetas flotantes */
 .hero-image {
   position: relative;
+  min-width: 0;
+  flex: 0 1 420px;
 }
 
 .image-wrapper {
@@ -281,8 +309,53 @@ header {
 
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 30px;
+}
+
+/* --- SOBRE NOSOTROS Y CONTACTO --- */
+.about {
+  padding: 80px 8%;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-text {
+  min-width: 0;
+}
+
+.about h2,
+.contact h2 {
+  font-family: var(--font-title);
+  font-size: 2.8rem;
+  margin-bottom: 16px;
+}
+
+.about p,
+.contact p {
+  color: #555;
+  line-height: 1.7;
+}
+
+.about p + p {
+  margin-top: 16px;
+}
+
+.contact {
+  padding: 80px 8%;
+  text-align: center;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 28px;
 }
 
 .card {
@@ -418,9 +491,14 @@ footer {
 
 /* --- ADAPTABILIDAD PARA MÓVILES (RESPONSIVE) --- */
 @media (max-width: 768px) {
-  .navbar {
+  .header-container {
     flex-direction: column;
     gap: 15px;
+  }
+
+  .main-nav ul {
+    flex-wrap: wrap;
+    gap: 12px 18px;
   }
 
   .hero {
@@ -441,7 +519,58 @@ footer {
     height: 350px;
   }
 
+  .hero-image {
+    width: min(100%, 420px);
+    flex-basis: auto;
+  }
+
+  .about h2,
+  .contact h2 {
+    font-size: 2.2rem;
+  }
+
   .tag1, .tag2 {
     display: none; /* Oculta etiquetas en pantallas muy pequeñas para mejor lectura */
+  }
+}
+
+@media (max-width: 420px) {
+  header {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
+  .logo {
+    font-size: 1.55rem;
+  }
+
+  .main-nav ul {
+    gap: 10px 14px;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .hero,
+  .menu,
+  .about,
+  .contact {
+    padding-right: 6%;
+    padding-left: 6%;
+  }
+
+  .hero-content h1 {
+    font-size: 2.15rem;
+  }
+
+  .image-wrapper img {
+    height: 280px;
+  }
+
+  .btn-primary-wa,
+  .btn-secondary-tt {
+    font-size: 1rem;
+    padding: 14px 20px;
   }
 }
