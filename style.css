@@ -51,11 +51,18 @@ body {
 }
 
 /* --- DECORACIONES DE FONDO --- */
+.bg-decorations {
+  position: absolute;
+  inset: 0;
+  overflow: clip;
+  pointer-events: none;
+  z-index: -1;
+}
+
 .bg-shape {
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
-  z-index: -1;
   animation: moveBg 10s infinite ease-in-out;
 }
 
