@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fresas con Crema | Dulce Tentación</title>
+  <title>Fresas con Crema | Hechos con amor</title>
   <link rel="stylesheet" href="style.css">
   <!-- Fuentes e iconos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,15 +20,14 @@
   </div>
 
   <!-- ENCABEZADO -->
-  <header>
+  <header class="site-header">
     <div class="header-container">
       <div class="logo">
         <i class="fa-solid fa-strawberry logo-icon"></i>
-        <span>Fresas & Crema</span>
+        <span>Fresas &amp; Crema</span>
       </div>
 
-      <!-- MENÚ DE NAVEGACIÓN -->
-      <nav class="main-nav">
+      <nav class="main-nav" aria-label="Navegación principal">
         <ul>
           <li><a href="#inicio" class="nav-link active"><i class="fa-solid fa-house"></i> Inicio</a></li>
           <li><a href="#productos" class="nav-link"><i class="fa-solid fa-ice-cream"></i> Productos</a></li>
@@ -37,91 +36,90 @@
         </ul>
       </nav>
 
-      <!-- Botones de Redes en el Encabezado -->
-      <div class="social-top">
-        <a href="https://wa.me/59172658361" target="_blank" class="btn-whatsapp">
+      <div class="social-top" aria-label="Redes y pedidos">
+        <a href="https://wa.me/59172658361" target="_blank" rel="noopener noreferrer" class="btn-whatsapp" aria-label="WhatsApp">
           <i class="fa-brands fa-whatsapp"></i>
         </a>
-        <a href="https://www.tiktok.com/@fresas_concrema.99?_r=1&amp;_t=ZS-9AWvFsA1xw5" target="_blank" class="btn-tiktok">
+        <a href="https://www.tiktok.com/@fresas_concrema.99?_r=1&amp;_t=ZS-9AWvFsA1xw5" target="_blank" rel="noopener noreferrer" class="btn-tiktok" aria-label="TikTok">
           <i class="fa-brands fa-tiktok"></i>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- SECCIÓN INICIO (HERO) -->
-  <section id="inicio" class="hero">
-    <div class="hero-content">
-      <span class="badge">🍓 100% Frescas y Cremositas</span>
-      <h1>La combinación <br><span class="highlight">perfecta</span> para tu paladar</h1>
-      <p>Fresas seleccionadas una a una, bañadas en nuestra receta especial de crema secreta y toppings irresistibles.</p>
-      
-      <div class="hero-buttons">
-        <a href="https://wa.me/59172658361?text=Hola%2C%20quiero%20hacer%20un%20pedido" target="_blank" class="btn-primary-wa">
-          <i class="fa-brands fa-whatsapp"></i> Pide por WhatsApp
-        </a>
-        <a href="https://www.tiktok.com/@fresas_concrema.99?_r=1&amp;_t=ZS-9AWvFsA1xw5" target="_blank" class="btn-secondary-tt">
-          <i class="fa-brands fa-tiktok"></i> TikTok
-        </a>
-      </div>
-    </div>
+  <main>
+    <section id="inicio" class="hero">
+      <div class="hero-content">
+        <span class="badge">🍓 100% Frescas y Cremositas</span>
+        <h1>La combinación <br><span class="highlight">perfecta</span> para tu paladar</h1>
+        <p>Fresas seleccionadas una a una, bañadas en nuestra receta especial de crema secreta y toppings irresistibles.</p>
 
-    <div class="hero-image">
-      <div class="image-wrapper">
-        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=800&q=80" alt="Fresas con Crema">
-        <div class="floating-tag tag1">✨ Crema Secreta</div>
-        <div class="floating-tag tag2">🍓 100% Orgánicas</div>
+        <div class="hero-buttons">
+          <a href="https://wa.me/59172658361?text=Hola%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener noreferrer" class="btn-primary-wa">
+            <i class="fa-brands fa-whatsapp"></i> Pide por WhatsApp
+          </a>
+          <a href="https://www.tiktok.com/@fresas_concrema.99?_r=1&amp;_t=ZS-9AWvFsA1xw5" target="_blank" rel="noopener noreferrer" class="btn-secondary-tt">
+            <i class="fa-brands fa-tiktok"></i> TikTok
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+
+      <div class="hero-image">
+        <div class="image-wrapper">
+          <div class="logo-frame">
+            <img class="header-logo" src="imagenes/logo.jpg" alt="Logo de Fresas con Crema">
+          </div>
+          <div class="floating-tag logo-note rotating-note" id="rotating-note" aria-live="polite">Ingredientes naturales</div>
+        </div>
+      </div>
+    </section>
 
   <!-- SECCIÓN PRODUCTOS -->
-  <section id="productos" class="menu">
-    <h2>Nuestros <span class="highlight">Productos</span></h2>
-    <p class="section-subtitle">Elige tu combinación favorita y pídela directo a WhatsApp</p>
-
-    <div class="cards-grid">
-      <div class="card">
-        <div class="card-badge">Más Popular</div>
-        <div class="card-img">
-          <img src="https://github.com/michael-kevin/fresas-con-cremas/commit/cb358aec29652a9e42f814fd900471d2e221622e">
-        </div>
-        <div class="card-info">
-          <h3>Clásica Tentación</h3>
-          <p>Fresas frescas, nuestra crema especial de la casa y un toque de leche condensada.</p>
-          <a href="https://wa.me/59172658361?text=Hola%2C%20quiero%20pedir%20una%20Cl%C3%A1sica%20Tentaci%C3%B3n." target="_blank" class="card-btn">
-            <i class="fa-brands fa-whatsapp"></i> Pedir
-          </a>
-        </div>
+    <section id="productos" class="menu" aria-labelledby="products-title">
+      <div class="section-heading">
+        <span class="eyebrow">Nuestras favoritas</span>
+        <h2 id="products-title">Elegí tu <span class="highlight">vasito</span></h2>
+        <p class="section-subtitle">Cada 10 segundos cambia la presentación. El pedido siempre corresponde a la que ves.</p>
       </div>
 
-      <div class="card">
-        <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" alt="Choco-Fresa">
-        </div>
-        <div class="card-info">
-          <h3>Choco-Fresa Deluxe</h3>
-          <p>Nuestra base tradicional con chispas de chocolate, galleta Oreo troceada y sirope de chocolate.</p>
-          <a href="https://wa.me/59172658361?text=Hola%2C%20quiero%20pedir%20una%20Choco-Fresa%20Deluxe." target="_blank" class="card-btn">
-            <i class="fa-brands fa-whatsapp"></i> Pedir
-          </a>
-        </div>
-      </div>
+      <div class="cards-grid">
+        <article class="card product-card" data-product="Nutella" data-size="500"
+          data-image-500="imagenes/nutella-500.jpg" data-image-350="imagenes/nutella-350.jpg">
+          <div class="card-img product-visual">
+            <img class="product-image" src="imagenes/nutella-500.jpg" alt="Fresas con crema y Nutella, 500 ml" width="1024" height="768">
+            <span class="product-ribbon"><i class="fa-solid fa-heart"></i> Hecho con amor</span>
+          </div>
+          <div class="card-info">
+            <div class="product-heading">
+              <h3>Nutella <span class="product-size" data-product-size>500 ml</span></h3>
+            </div>
+            <p>Doble capa de crema, abundantes fresas, helado de vainilla y abundante baño de Nutella original.</p>
+            <a href="https://wa.me/59172658361?text=Hola%2C%20quiero%20pedir%20Nutella%20de%20500%20ml."
+              target="_blank" rel="noopener noreferrer" class="card-btn" data-order-link>
+              <i class="fa-brands fa-whatsapp"></i> Pedir Nutella
+            </a>
+          </div>
+        </article>
 
-      <div class="card">
-        <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=600&q=80" alt="Mega Nutella">
-        </div>
-        <div class="card-info">
-          <h3>Súper Nutella</h3>
-          <p>Doble capa de crema, abundantes fresas, helado de vainilla y abundante baño de Nutella original.</p>
-          <a href="https://wa.me/59172658361?text=Hola%2C%20quiero%20pedir%20una%20S%C3%BAper%20Nutella." target="_blank" class="card-btn">
-            <i class="fa-brands fa-whatsapp"></i> Pedir
-          </a>
-        </div>
+        <article class="card product-card" data-product="Leche Condensada" data-size="500"
+          data-image-500="imagenes/leche-condensada-500.jpg" data-image-350="imagenes/leche-condensada-350.jpg">
+          <div class="card-img product-visual">
+            <img class="product-image" src="imagenes/leche-condensada-500.jpg" alt="Fresas con crema y leche condensada, 500 ml" width="1024" height="768">
+            <span class="product-ribbon"><i class="fa-solid fa-heart"></i> Un clásico dulce</span>
+          </div>
+          <div class="card-info">
+            <div class="product-heading">
+              <h3>Leche Condensada <span class="product-size" data-product-size>500 ml</span></h3>
+            </div>
+            <p>Fresas frescas, nuestra crema especial de la casa y un toque de leche condensada.</p>
+            <a href="https://wa.me/59172658361?text=Hola%2C%20quiero%20pedir%20Leche%20Condensada%20de%20500%20ml."
+              target="_blank" rel="noopener noreferrer" class="card-btn" data-order-link>
+              <i class="fa-brands fa-whatsapp"></i> Pedir Leche Condensada
+            </a>
+          </div>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
   <!-- SECCIÓN SOBRE NOSOTROS -->
   <section id="nosotros" class="about">
@@ -149,6 +147,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- BOTONES FLOTANTES DE CONTACTO -->
   <div class="floating-social">
     <a href="https://wa.me/59172658361" target="_blank" class="float-btn float-wa" title="WhatsApp">
@@ -174,6 +174,79 @@
       <p>© 2026 Fresas con Crema. Todos los derechos reservados.</p>
     </div>
   </footer>
+
+  <script>
+    (() => {
+      const phoneNumber = '59172658361';
+      const note = document.querySelector('#rotating-note');
+      const notes = ['Ingredientes naturales', 'Hechos con amor', 'Súper delicioso'];
+      const productCards = document.querySelectorAll('.product-card');
+      const imageLoads = new Map();
+      let noteIndex = 0;
+
+      const preloadImage = (src) => {
+        if (!imageLoads.has(src)) {
+          imageLoads.set(src, new Promise((resolve, reject) => {
+            const image = new Image();
+            image.onload = () => resolve(src);
+            image.onerror = () => reject(new Error(`No se pudo cargar ${src}`));
+            image.src = src;
+          }));
+        }
+        return imageLoads.get(src);
+      };
+
+      const makeOrderUrl = (product, size) => {
+        const message = `Hola, quiero pedir ${product} de ${size} ml.`;
+        return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      };
+
+      productCards.forEach((card) => {
+        const product = card.dataset.product;
+        const image = card.querySelector('.product-image');
+        const sizeLabel = card.querySelector('[data-product-size]');
+        const orderLink = card.querySelector('[data-order-link]');
+
+        [card.dataset.image500, card.dataset.image350].forEach((src) => {
+          preloadImage(src).catch((error) => console.error(error));
+        });
+
+        window.setInterval(async () => {
+          if (card.dataset.changing === 'true') return;
+
+          const nextSize = card.dataset.size === '500' ? '350' : '500';
+          const nextImage = card.dataset[`image${nextSize}`];
+          card.dataset.changing = 'true';
+
+          try {
+            await preloadImage(nextImage);
+            card.classList.add('is-changing');
+            window.setTimeout(() => {
+              image.src = nextImage;
+              image.alt = `Fresas con crema y ${product}, ${nextSize} ml`;
+              sizeLabel.textContent = `${nextSize} ml`;
+              orderLink.href = makeOrderUrl(product, nextSize);
+              card.dataset.size = nextSize;
+              card.classList.remove('is-changing');
+              card.dataset.changing = 'false';
+            }, 180);
+          } catch (error) {
+            card.dataset.changing = 'false';
+            console.error(error);
+          }
+        }, 10000);
+      });
+
+      window.setInterval(() => {
+        note.classList.add('is-changing');
+        window.setTimeout(() => {
+          noteIndex = (noteIndex + 1) % notes.length;
+          note.textContent = notes[noteIndex];
+          note.classList.remove('is-changing');
+        }, 180);
+      }, 10000);
+    })();
+  </script>
 
 </body>
 </html>
