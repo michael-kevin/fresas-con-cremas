@@ -83,36 +83,36 @@
       </div>
 
       <div class="cards-grid">
-        <article class="card product-card" data-product="Nutella" data-size="500"
+        <article class="card product-card" data-product="Fresas con Crema y Nutella" data-size="500"
           data-image-500="imagenes/nutella-500.jpg" data-image-350="imagenes/nutella-350.jpg">
           <div class="card-img product-visual">
-            <img class="product-image" src="imagenes/nutella-500.jpg" alt="Fresas con crema y Nutella, 500 ml" width="1024" height="768">
+            <img class="product-image" src="imagenes/nutella-500.jpg" alt="Fresas con Crema y Nutella 500ml" width="1024" height="768">
             <span class="product-ribbon"><i class="fa-solid fa-heart"></i> Hecho con amor</span>
           </div>
           <div class="card-info">
             <div class="product-heading">
-              <h3>Nutella <span class="product-size" data-product-size>500 ml</span></h3>
+              <h3><span data-product-name>Fresas con Crema y Nutella</span> <span class="product-size" data-product-size>500ml</span></h3>
             </div>
             <p>Doble capa de crema, abundantes fresas, helado de vainilla y abundante baño de Nutella original.</p>
-            <a href="https://wa.me/59172658361?text=Hola%2C%20quiero%20pedir%20Nutella%20de%20500%20ml."
+            <a href="https://wa.me/59172658361?text=Hola%2C%20quiero%20pedir%20Fresas%20con%20Crema%20y%20Nutella%20de%20500%20ml."
               target="_blank" rel="noopener noreferrer" class="card-btn" data-order-link>
               <i class="fa-brands fa-whatsapp"></i> Pedir Nutella
             </a>
           </div>
         </article>
 
-        <article class="card product-card" data-product="Leche Condensada" data-size="500"
+        <article class="card product-card" data-product="Fresas con Crema y Leche Condensada" data-size="500"
           data-image-500="imagenes/leche-condensada-500.jpg" data-image-350="imagenes/leche-condensada-350.jpg">
           <div class="card-img product-visual">
-            <img class="product-image" src="imagenes/leche-condensada-500.jpg" alt="Fresas con crema y leche condensada, 500 ml" width="1024" height="768">
+            <img class="product-image" src="imagenes/leche-condensada-500.jpg" alt="Fresas con Crema y Leche Condensada 500ml" width="1024" height="768">
             <span class="product-ribbon"><i class="fa-solid fa-heart"></i> Un clásico dulce</span>
           </div>
           <div class="card-info">
             <div class="product-heading">
-              <h3>Leche Condensada <span class="product-size" data-product-size>500 ml</span></h3>
+              <h3><span data-product-name>Fresas con Crema y Leche Condensada</span> <span class="product-size" data-product-size>500ml</span></h3>
             </div>
             <p>Fresas frescas, nuestra crema especial de la casa y un toque de leche condensada.</p>
-            <a href="https://wa.me/59172658361?text=Hola%2C%20quiero%20pedir%20Leche%20Condensada%20de%20500%20ml."
+            <a href="https://wa.me/59172658361?text=Hola%2C%20quiero%20pedir%20Fresas%20con%20Crema%20y%20Leche%20Condensada%20de%20500%20ml."
               target="_blank" rel="noopener noreferrer" class="card-btn" data-order-link>
               <i class="fa-brands fa-whatsapp"></i> Pedir Leche Condensada
             </a>
@@ -201,13 +201,28 @@
         return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
       };
 
-      productCards.forEach((card) => {
+      const renderPresentation = (card, size) => {
         const product = card.dataset.product;
         const image = card.querySelector('.product-image');
+        const productName = card.querySelector('[data-product-name]');
         const sizeLabel = card.querySelector('[data-product-size]');
         const orderLink = card.querySelector('[data-order-link]');
+        const imagePath = card.getAttribute(`data-image-${size}`);
 
-        [card.dataset.image500, card.dataset.image350].forEach((src) => {
+        image.src = imagePath;
+        image.alt = `${product} ${size}ml`;
+        productName.textContent = product;
+        sizeLabel.textContent = `${size}ml`;
+        orderLink.href = makeOrderUrl(product, size);
+        card.dataset.size = size;
+      };
+
+      productCards.forEach((card) => {
+        const currentSize = card.dataset.size;
+        const image500 = card.getAttribute('data-image-500');
+        const image350 = card.getAttribute('data-image-350');
+        renderPresentation(card, currentSize);
+        [image500, image350].forEach((src) => {
           preloadImage(src).catch((error) => console.error(error));
         });
 
@@ -215,18 +230,14 @@
           if (card.dataset.changing === 'true') return;
 
           const nextSize = card.dataset.size === '500' ? '350' : '500';
-          const nextImage = card.dataset[`image${nextSize}`];
+          const nextImage = card.getAttribute(`data-image-${nextSize}`);
           card.dataset.changing = 'true';
 
           try {
             await preloadImage(nextImage);
             card.classList.add('is-changing');
             window.setTimeout(() => {
-              image.src = nextImage;
-              image.alt = `Fresas con crema y ${product}, ${nextSize} ml`;
-              sizeLabel.textContent = `${nextSize} ml`;
-              orderLink.href = makeOrderUrl(product, nextSize);
-              card.dataset.size = nextSize;
+              renderPresentation(card, nextSize);
               card.classList.remove('is-changing');
               card.dataset.changing = 'false';
             }, 180);
